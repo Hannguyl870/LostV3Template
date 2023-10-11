@@ -70,6 +70,7 @@ namespace LostAdventure
             this.outputLabel.Size = new System.Drawing.Size(357, 101);
             this.outputLabel.TabIndex = 8;
             this.outputLabel.Text = "outputLabel";
+            this.outputLabel.Click += new System.EventHandler(this.outputLabel_Click);
             // 
             // imageBox
             // 
