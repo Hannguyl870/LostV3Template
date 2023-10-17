@@ -23,7 +23,7 @@ namespace LostAdventure
             InitializeComponent();
 
             // Display initial message and options
-            outputLabel.Text = "yoiu are lost in a forest";
+            outputLabel.Text = "you are lost in a forest";
             option1Label.Text = "Go north";
             option2Label.Text = "Go south";
 
@@ -43,14 +43,15 @@ namespace LostAdventure
             {
                 page = 4;
             }
+            else if (page == 4)
+            {
+                page = 1;
+            }
             else if (page == 3) 
             {
                 page = 1; 
             }
-            else if (page == 4) 
-            {
-                page = 1;
-            }
+           
             else if (page == 5) 
             {
                 page = 6;        
@@ -59,11 +60,19 @@ namespace LostAdventure
             {
                 page = 1;
             }
+            else if (page == 5)
+            {
+                page = 11;
+            }
+            else if (page == 11)
+            {
+                page = 1;
+            }
             else if (page == 7) 
             {
                 page = 1;
             }
-
+           
 
             /// Display text and game options to screen based on the 
             /// current page
@@ -113,6 +122,9 @@ namespace LostAdventure
                     option1Label.Text = "yes";
                     option2Label.Text = "no";
                     break;
+                case 8:
+                    outputLabel.Text = "you jump to freedom and win ";
+                    break;
                 case 99:
                     outputLabel.Text = "thank you for playing";
                     Refresh();
@@ -131,7 +143,18 @@ namespace LostAdventure
             ///if (page == 1) 
             if (page == 1)
             {
-                page = 3;
+                Random rangen = new Random();
+                int randvalue = rangen.Next(1, 101);
+
+                if (randvalue > 70)
+                {
+                    page = 3;
+                }
+                else
+                {
+                    page = 8;
+                }
+
             }
             else if (page == 2)
             {
@@ -157,6 +180,12 @@ namespace LostAdventure
             {
                 page = 99;
             }
+            else if(page == 8)
+            {
+                page = 1;
+            }
+                
+            
 
 
             /// Display text and game options to screen based on the 
@@ -169,9 +198,10 @@ namespace LostAdventure
                     option1Label.Text = "Go north";
                     option2Label.Text = "Go south";
 
-                    imageBox.Image = Properties.Resources.deepBrush
+                    imageBox.Image = Properties.Resources.deepBrush;
 
                     break;
+
                 case 2:
                     outputLabel.Text = "you come to a lake do you want to take a drink?";
                     option1Label.Text = "Yes";
@@ -182,11 +212,13 @@ namespace LostAdventure
                      sp = new SoundPlayer(Properties.Resources.brook);
                     sp.Play();
                     break;
+
                 case 3:
                     outputLabel.Text = "you fall in a pit and die!.Play again?";
                     option1Label.Text = "yes";
                     option2Label.Text = "no";
                     break;
+
                 case 4:
                     outputLabel.Text = "The water is stagnent you die of cholera. play again?";
                     option1Label.Text = "yes";
@@ -206,6 +238,11 @@ namespace LostAdventure
                     outputLabel.Text = "the horse wlaks past you die of lonliness. play again?";
                     option1Label.Text = "yes";
                     option2Label.Text = "no";
+                    break;
+
+                case 8:
+                    outputLabel.Text = "you jump to freedom and win ";
+
                     break;
                 case 99:
                     outputLabel.Text = "thank you for playing";
